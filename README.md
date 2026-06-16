@@ -1,20 +1,13 @@
+[README.md](https://github.com/user-attachments/files/29010866/README.md)
 # Maverick Journey Slack Communication Layer Demo
 
-This is an upload-ready static version for Vercel.
-
-## What changed
-
-- Stronger trainer-focused explanation
-- Clear section showing Maverick Journey's differentiator: data becomes trainer action
-- Client Slack logging examples
-- Trainer urgent alert examples
-- Dashboard update flow
-- Wearable data examples using Terra / ROOK / Apple Health-style language
-- Simple trainer sales pitch
+This version is configured for Vercel projects that expect the Output Directory to be `public`.
 
 ## Vercel settings
 
-Build command: npm run build
-Output directory: dist
+Framework Preset: Other
+Build Command: npm run build
+Output Directory: public
+Install Command: npm install
 
-This package does not need React, Vite, or external dependencies.
+The build script copies `index.html` into `/public/index.html` so Vercel can find the output directory after build.
