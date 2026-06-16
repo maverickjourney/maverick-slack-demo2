@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maverick Journey | Slack Communication Layer</title>
+  <meta name="description" content="Maverick Journey Slack Communication Layer demo for trainers." />
+  <style>
+    :root{--bg:#f6f7fb;--ink:#0b1220;--muted:#667085;--line:#e7e9f0;--card:#fff;--dark:#111827;--blue:#3538cd;--blue2:#eef4ff;--pink:#fff1f3;--red:#c01048;--green:#ecfdf3;--greenText:#027a48;--shadow:0 22px 55px rgba(16,24,40,.08)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 0 0,#e8edff 0,#f6f7fb 30%,#fff 100%)}a{text-decoration:none;color:inherit}.nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px 6vw;background:rgba(255,255,255,.8);backdrop-filter:blur(18px);border-bottom:1px solid rgba(16,24,40,.08)}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.04em}.logo{width:38px;height:38px;border-radius:13px;background:var(--dark);color:#fff;display:grid;place-items:center;box-shadow:0 12px 24px rgba(17,24,39,.18)}.links{display:flex;gap:22px;color:#475467;font-size:14px}.links a:hover{color:var(--ink)}.hero{padding:78px 8vw 64px;display:grid;grid-template-columns:1.06fr .94fr;gap:54px;align-items:center;min-height:720px}.pill{display:inline-flex;width:max-content;padding:7px 12px;border-radius:999px;background:var(--blue2);color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.hero h1{font-size:clamp(44px,6vw,82px);line-height:.94;letter-spacing:-.075em;margin:18px 0}.hero p{font-size:21px;line-height:1.6;color:#475467;max-width:760px}.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.buttons a{padding:14px 18px;border-radius:14px;background:var(--dark);color:#fff;font-weight:900;box-shadow:0 18px 34px rgba(17,24,39,.2)}.buttons a.secondary{background:#fff;color:var(--dark);border:1px solid var(--line);box-shadow:none}.phone{justify-self:center;width:min(430px,100%);padding:18px;border:10px solid #101828;border-radius:44px;background:#f8fafc;box-shadow:0 35px 90px rgba(16,24,40,.24);transform:rotate(2deg)}.phoneTop{display:flex;justify-content:space-between;padding:6px 10px 16px;font-size:13px;font-weight:800}.channelHead{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px}.channelHead strong{display:block}.channelHead small{color:var(--muted)}.miniPill{padding:6px 9px;border-radius:999px;background:#ecfdf3;color:#027a48;font-size:11px;font-weight:900;text-transform:uppercase;white-space:nowrap}.chat{margin:14px 0;padding:14px;border-radius:18px;font-size:14px;box-shadow:0 8px 20px rgba(16,24,40,.05)}.chat b{display:block;margin-bottom:6px;font-size:13px}.chat p{margin:0;line-height:1.48}.ai{background:#fff;border:1px solid var(--line);color:#344054}.user{background:var(--dark);color:#fff;margin-left:38px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{padding:8px 10px;border-radius:999px;background:var(--pink);color:var(--red);font-size:12px;font-weight:900}.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 8vw 58px}.stripCard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}.icon{font-size:26px}.stripCard strong{display:block;font-size:18px;margin:10px 0 6px}.stripCard span{color:var(--muted);line-height:1.45}.section{padding:76px 8vw}.darkSection{background:var(--ink);color:#fff}.eyebrow{margin:0 0 8px;color:var(--blue);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}.darkSection .eyebrow{color:#fff}.section h2{max-width:940px;margin:0;font-size:clamp(34px,4.4vw,58px);line-height:1;letter-spacing:-.055em}.intro{max-width:900px;font-size:19px;line-height:1.6;color:#475467;margin:18px 0 34px}.darkSection .intro{color:#cbd5e1}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:var(--shadow)}.card h3{font-size:24px;letter-spacing:-.035em;margin:10px 0}.card p{color:#475467;line-height:1.62;margin:0}.darkCard{background:linear-gradient(145deg,#3538cd,#111827);color:#fff;border:0}.darkCard p{color:#e0e7ff}.flowCard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}.flowCard h3{font-size:20px;margin:12px 0 8px}.flowCard p{color:#475467;line-height:1.5;margin:0}.exampleCard p{font-size:18px;margin-top:16px}.alertWrap{display:grid;grid-template-columns:1fr 460px;gap:30px;align-items:start}.alertList{display:grid;gap:14px}.miniAlert{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}.miniAlert header{display:flex;justify-content:space-between;gap:12px;align-items:center}.miniAlert p{font-size:18px;line-height:1.4;margin:14px 0;color:#101828}.miniAlert small{display:block;color:#667085;line-height:1.5;font-size:14px}.alertMock{position:sticky;top:98px;background:#111827;color:#fff;border-radius:30px;padding:28px;box-shadow:0 30px 80px rgba(16,24,40,.22)}.alertMock .top{display:flex;gap:10px;color:#fecdd3;font-weight:900}.alertMock h3{font-size:30px;letter-spacing:-.035em;margin:18px 0 12px}.alertMock p{color:#e5e7eb;line-height:1.55}.suggest{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:18px;margin:18px 0}.fakeButton{display:block;text-align:center;background:#fff;color:#111827;padding:14px;border-radius:16px;font-weight:900}.channelCard div{display:flex;justify-content:space-between;gap:12px;align-items:start}.wear{background:linear-gradient(180deg,#eef2ff,#fff)}.messageBox{margin-top:18px;display:flex;gap:18px;align-items:center;padding:24px;border-radius:24px;background:#111827;color:#fff}.messageBox p{margin:0;line-height:1.55;color:#e5e7eb}.pitchCard{max-width:1000px;background:#111827;color:#fff}.pitchCard p{font-size:22px;line-height:1.55;margin:0 0 18px;color:#f9fafb}.compare{background:#fff}.compareGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.compareBox{border-radius:28px;padding:28px}.old{background:#f8fafc;border:1px solid var(--line)}.new{background:#ecfdf3;border:1px solid #abefc6}.compareBox h3{font-size:28px;margin:0 0 16px}.compareBox ul{margin:0;padding-left:20px;color:#475467;line-height:1.85}.new ul{color:#054f31}footer{display:flex;justify-content:space-between;align-items:center;padding:38px 8vw;background:#fff;border-top:1px solid var(--line);color:#667085}.fineprint{font-size:13px;color:#667085;line-height:1.5;margin-top:18px}@media(max-width:980px){.hero,.alertWrap{grid-template-columns:1fr}.grid4,.strip,.grid3{grid-template-columns:repeat(2,1fr)}.alertMock{position:relative;top:0}.compareGrid{grid-template-columns:1fr}.phone{transform:none}.links{display:none}}@media(max-width:680px){.hero,.section,.strip{padding-left:5vw;padding-right:5vw}.grid4,.strip,.grid3,.grid2{grid-template-columns:1fr}.hero{padding-top:46px}.hero h1{font-size:44px}.hero p,.pitchCard p{font-size:18px}footer{flex-direction:column;text-align:center;gap:12px}.channelCard div,.miniAlert header{display:block}.miniAlert .pill{margin-top:8px}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand"><div class="logo">M</div><span>Maverick Journey</span></div>
+    <div class="links"><a href="#difference">Difference</a><a href="#flow">Flow</a><a href="#alerts">Alerts</a><a href="#wearables">Wearables</a><a href="#pitch">Trainer Pitch</a></div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <span class="pill">Slack Communication Layer</span>
+      <h1>Slack is not the dashboard. Slack is the real-time coaching communication layer.</h1>
+      <p>Maverick Journey uses Slack to collect client updates, organize them with AI, update both dashboards, and alert the trainer when a client needs action.</p>
+      <div class="buttons"><a href="#difference">Why it matters</a><a class="secondary" href="#examples">See examples</a></div>
+    </div>
+    <div class="phone">
+      <div class="phoneTop"><span>9:41</span><span>5G</span></div>
+      <div class="channelHead"><div><strong>#sarah-k-client-log</strong><small>Sarah + Maverick AI + Coach Alex</small></div><span class="miniPill">Live Client Channel</span></div>
+      <div class="chat ai"><b>Maverick AI</b><p>Morning Sarah. Drop anything here today: meals, weight, workout, soreness, mood, questions, photos, or documents.</p></div>
+      <div class="chat user"><b>Sarah</b><p>Workout done. I felt dizzy after and my heart rate felt weird. Also slept only 4.5 hours.</p></div>
+      <div class="chat ai"><b>Maverick AI</b><p>Logged. I’m flagging this for Coach Alex and saving it under recovery notes. Please avoid pushing intensity until your trainer reviews.</p></div>
+      <div class="chips"><span>Dizziness</span><span>Low sleep</span><span>Recovery</span><span>Trainer alert</span></div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="stripCard"><div class="icon">💬</div><strong>Client logs everything</strong><span>Meals, workouts, symptoms, mood, photos, documents.</span></div>
+    <div class="stripCard"><div class="icon">✦</div><strong>Maverick AI organizes</strong><span>Classifies updates, saves context, finds risks.</span></div>
+    <div class="stripCard"><div class="icon">🔔</div><strong>Trainer gets alerted</strong><span>Only when something matters or needs action.</span></div>
+    <div class="stripCard"><div class="icon">📋</div><strong>Dashboards update</strong><span>Client and trainer records stay current.</span></div>
+  </section>
+
+  <section id="difference" class="section darkSection">
+    <p class="eyebrow">Main differentiator</p>
+    <h2>Other platforms show data. Maverick Journey turns data into trainer action.</h2>
+    <p class="intro">Most fitness tools collect logs and leave the trainer to search through everything. Maverick Journey watches for coaching signals and brings the important ones directly to the trainer.</p>
+    <div class="grid3">
+      <div class="card darkCard"><div class="icon">⚡</div><h3>The trainer becomes responsible at the right moment</h3><p>When a client reports pain, dizziness, low recovery, missed workouts, emotional frustration, or repeated non-compliance, Maverick Journey flags it immediately. The trainer can adjust the workout, check in, call directly, or monitor the issue over time.</p></div>
+      <div class="card"><div class="icon">🛡️</div><h3>AI supports, but does not replace, the trainer</h3><p>The AI can suggest possible coaching actions, draft messages, summarize symptoms, compare patterns, and recommend what to review. The trainer stays in control and approves changes.</p></div>
+      <div class="card"><div class="icon">🫀</div><h3>Injury and symptom tracking becomes part of coaching</h3><p>If the same knee pain, shoulder tightness, dizziness, fatigue, bloating, or recovery issue appears again, the trainer sees the pattern instead of forgetting a scattered text message.</p></div>
+    </div>
+  </section>
+
+  <section id="flow" class="section">
+    <p class="eyebrow">How it works</p>
+    <h2>One client message can update three places at once.</h2>
+    <p class="intro">Slack captures the conversation. Maverick Journey AI turns it into structured coaching intelligence.</p>
+    <div class="grid4">
+      <div class="flowCard"><div class="icon">👤</div><h3>Client posts in Slack</h3><p>“I felt dizzy after my workout and my heart rate felt weird.”</p></div>
+      <div class="flowCard"><div class="icon">✦</div><h3>AI classifies the update</h3><p>Recovery concern, possible urgent review, workout adjustment needed.</p></div>
+      <div class="flowCard"><div class="icon">📊</div><h3>Dashboards update</h3><p>Saved under check-in, recovery notes, client profile, and trainer dashboard flags.</p></div>
+      <div class="flowCard"><div class="icon">🔔</div><h3>Trainer gets alerted</h3><p>Slack alert tells trainer what happened and what action may be needed.</p></div>
+    </div>
+    <div class="grid3" style="margin-top:18px">
+      <div class="card"><div class="icon">✅</div><h3>Client Dashboard</h3><p>Client sees logged meals, workouts, reminders, wearable summaries, progress notes, photos, and weekly AI recap.</p></div>
+      <div class="card"><div class="icon">✅</div><h3>Trainer Dashboard</h3><p>Trainer sees client flags, organized notes, compliance trends, workout history, injury notes, nutrition logs, and AI suggestions.</p></div>
+      <div class="card"><div class="icon">✅</div><h3>Trainer Slack</h3><p>Trainer receives important alerts: injuries, dizziness, low recovery, missed check-ins, plan adjustment needs, and client concerns.</p></div>
+    </div>
+  </section>
+
+  <section id="examples" class="section" style="background:#f8fafc">
+    <p class="eyebrow">Client input examples</p>
+    <h2>The client can dump what they normally text the trainer.</h2>
+    <p class="intro">The client does not need to learn a complicated app. Slack becomes the simple place where they send daily updates.</p>
+    <div class="grid3">
+      <div class="card exampleCard"><span class="pill">Nutrition</span><p>“Breakfast: eggs, oats, berries. Weight 168.2. Feeling a little bloated today.”</p></div>
+      <div class="card exampleCard"><span class="pill">Workout</span><p>“Finished upper body. Bench felt strong but shoulder felt tight on the last set.”</p></div>
+      <div class="card exampleCard"><span class="pill">Recovery</span><p>“Slept 4.5 hours and woke up exhausted. I do not think I can train hard today.”</p></div>
+      <div class="card exampleCard"><span class="pill">Urgent</span><p>“I felt dizzy after my workout and my heart rate felt weird.”</p></div>
+      <div class="card exampleCard"><span class="pill">Progress</span><p>“Uploaded weekly progress photos and weigh-in.”</p></div>
+      <div class="card exampleCard"><span class="pill">Schedule</span><p>“Traveling tomorrow. Need a hotel workout version.”</p></div>
+    </div>
+  </section>
+
+  <section id="alerts" class="section">
+    <div class="alertWrap">
+      <div>
+        <p class="eyebrow">Trainer alert system</p>
+        <h2>This is what makes the trainer experience valuable.</h2>
+        <p class="intro">Maverick Journey does not just tell trainers that data exists. It tells them who needs attention, why it matters, and what they may need to do next.</p>
+        <div class="alertList">
+          <div class="miniAlert"><header><strong>Sarah Kim</strong><span class="pill">Urgent Review</span></header><p>Reported dizziness after workout and unusual heart rate feeling.</p><small>Trainer should check in, review workout intensity, and decide whether to adjust today’s plan or recommend medical evaluation if symptoms continue.</small></div>
+          <div class="miniAlert"><header><strong>Mike Thompson</strong><span class="pill">Injury Flag</span></header><p>Shoulder tightness appeared for the second time this week during pressing movements.</p><small>AI suggests reducing pressing volume, asking pain follow-up questions, and monitoring if discomfort worsens.</small></div>
+          <div class="miniAlert"><header><strong>Jessica Lee</strong><span class="pill">Recovery Alert</span></header><p>Sleep dropped below 5 hours for 2 nights and HRV is trending down.</p><small>Trainer may switch today to lower intensity, recovery work, mobility, or rest.</small></div>
+          <div class="miniAlert"><header><strong>David Rodriguez</strong><span class="pill">Accountability</span></header><p>Missed two nutrition logs and has not completed weekly check-in.</p><small>AI drafts a friendly reminder and flags trainer to follow up if missed again tomorrow.</small></div>
+        </div>
+      </div>
+      <div class="alertMock">
+        <div class="top">🚨 #trainer-urgent-alerts</div>
+        <h3>Urgent Review: Sarah Kim</h3>
+        <p>Sarah reported dizziness after her workout and unusual heart rate feeling. Sleep was only 4.5 hours.</p>
+        <div class="suggest"><strong>Suggested trainer action</strong><p>Check in now, review today’s workout intensity, consider switching to recovery or lighter movement, and monitor whether symptoms continue. Refer out if symptoms are sharp, severe, or worsening.</p></div>
+        <span class="fakeButton">Draft message to Sarah</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section compare">
+    <p class="eyebrow">Why trainers care</p>
+    <h2>Without Maverick Journey, important client updates get buried.</h2>
+    <p class="intro">This is the simplest way to show why the Slack layer is valuable for a trainer managing multiple clients.</p>
+    <div class="compareGrid">
+      <div class="compareBox old"><h3>Normal trainer workflow</h3><ul><li>Client texts meals, soreness, pain, missed workouts, and questions in random places.</li><li>Trainer has to remember everything manually.</li><li>Injury notes can get buried in old messages.</li><li>Wearable data lives in separate apps.</li><li>Trainer reacts late because there is no automatic priority system.</li></ul></div>
+      <div class="compareBox new"><h3>Maverick Journey workflow</h3><ul><li>Client logs everything in Slack.</li><li>AI organizes the update into the correct client profile.</li><li>Trainer gets alerts only when action is needed.</li><li>AI suggests what the trainer may want to review or change.</li><li>Both dashboards update automatically with history and context.</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">Channel strategy</p>
+    <h2>Slack stays organized by purpose, not messy like normal texting.</h2>
+    <p class="intro">Each channel has a job. That makes client communication easier for the AI to read and easier for the trainer to manage.</p>
+    <div class="grid2">
+      <div class="card channelCard"><div><h3>#sarah-k-client-log</h3><span class="pill">Client input</span></div><p>Meals, weight, soreness, mood, questions, photos, documents, and anything the client would normally text.</p></div>
+      <div class="card channelCard"><div><h3>#sarah-k-coach-updates</h3><span class="pill">Trainer output</span></div><p>Workout changes, feedback, pointers, check-ins, encouragement, and trainer-approved AI messages.</p></div>
+      <div class="card channelCard"><div><h3>#sarah-k-reminders</h3><span class="pill">Automation</span></div><p>Food logs, water reminders, progress photos, check-ins, supplement reminders, and weekly reflection prompts.</p></div>
+      <div class="card channelCard"><div><h3>#sarah-k-health-sync</h3><span class="pill">Wearables</span></div><p>Sleep, HRV, steps, resting heart rate, recovery, readiness, and activity summaries from Terra/ROOK/Apple Health-style integrations.</p></div>
+      <div class="card channelCard"><div><h3>#trainer-command-center</h3><span class="pill">Trainer AI</span></div><p>Trainer asks Maverick AI which clients need attention and gets prioritized coaching actions.</p></div>
+      <div class="card channelCard"><div><h3>#trainer-urgent-alerts</h3><span class="pill">High priority</span></div><p>Important flags across all clients so the trainer can act quickly instead of searching manually.</p></div>
+    </div>
+  </section>
+
+  <section id="wearables" class="section wear">
+    <p class="eyebrow">Wearables + health data</p>
+    <h2>Slack can also become the notification layer for wearable insights.</h2>
+    <p class="intro">Through Terra, ROOK, Apple Health-style integrations, or similar data aggregators, Maverick Journey can turn sleep, HRV, resting heart rate, steps, activity, and recovery trends into useful trainer alerts.</p>
+    <div class="grid3">
+      <div class="card"><div class="icon">⌚</div><h3>Client connects wearable</h3><p>Apple Health, Oura, Garmin, Whoop, Fitbit, sleep trackers, or other compatible sources.</p></div>
+      <div class="card"><div class="icon">📈</div><h3>Data is analyzed</h3><p>Sleep, HRV, recovery, readiness, resting heart rate, steps, training load, and trend changes.</p></div>
+      <div class="card"><div class="icon">🔔</div><h3>Trainer gets useful summaries</h3><p>“Recovery is low today. Consider lowering workout intensity or checking in.”</p></div>
+    </div>
+    <div class="messageBox"><div class="icon">📱</div><p><strong>Example:</strong> Sleep dropped to 5h 12m, resting HR is above baseline, and HRV is down. Maverick Journey updates both dashboards and posts a recovery alert to the trainer in Slack.</p></div>
+  </section>
+
+  <section id="pitch" class="section">
+    <p class="eyebrow">Trainer sales angle</p>
+    <h2>Simple way to explain it to a trainer</h2>
+    <p class="intro">Use this language when showing the demo to a personal trainer.</p>
+    <div class="card pitchCard">
+      <p>“Your clients already text you everything: meals, soreness, workouts, photos, missed check-ins, injuries, schedule problems, and random questions. Maverick Journey brings that into Slack so AI can organize it, update your dashboard, and alert you only when something needs your attention.”</p>
+      <p>“The difference is that you are not just seeing client data. You are getting a coaching command center that tells you who needs action, why they need it, and what you may want to change.”</p>
+    </div>
+    <p class="fineprint">Important boundary: Maverick Journey can organize injury notes, symptoms, recovery concerns, and health documents, but it should not diagnose, prescribe, or replace medical care. The trainer remains in control and can refer out when needed.</p>
+  </section>
+
+  <footer>
+    <div class="brand"><div class="logo">M</div><span>Maverick Journey</span></div>
+    <p>Slack Communication Layer · Client ↔ Maverick AI ↔ Trainer</p>
+  </footer>
+</body>
+</html>
